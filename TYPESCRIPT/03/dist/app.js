@@ -26,7 +26,9 @@ ship.jumpInToHyperspace(); //executando o método
 var MilleniumFalcon = /** @class */ (function (_super) {
     __extends(MilleniumFalcon, _super);
     function MilleniumFalcon() {
-        return _super.call(this, 'hyperdrive') || this;
+        var _this = _super.call(this, 'hyperdrive') || this;
+        _this.cargoContainers = 4;
+        return _this;
     }
     MilleniumFalcon.prototype.jumpInToHyperspace = function () {
         if (Math.random() >= 0.5) {
@@ -40,3 +42,5 @@ var MilleniumFalcon = /** @class */ (function (_super) {
 }(Spacecraft));
 var falcon = new MilleniumFalcon();
 falcon.jumpInToHyperspace();
+var goodForTheJob = function (nave) { return nave.cargoContainers > 2; };
+console.log("Is Falcon good for the Job? " + (goodForTheJob(falcon) ? 'Yes' : 'No'));

@@ -11,9 +11,13 @@ class Spacecraft{ //Classe criada
 let ship = new Spacecraft('hyperdrive'); // instanciando a classe Spacecraft passando um valor por parâmetro atribundo esse valor ao construtor
 ship.jumpInToHyperspace(); //executando o método
 
-class MilleniumFalcon extends Spacecraft{
+class MilleniumFalcon extends Spacecraft implements Containership{
+
+    cargoContainers: number;
+
     constructor(){
         super('hyperdrive');
+        this.cargoContainers = 4;
     }
 
     jumpInToHyperspace(){
@@ -32,3 +36,11 @@ class MilleniumFalcon extends Spacecraft{
 let falcon = new MilleniumFalcon();
 
 falcon.jumpInToHyperspace();
+
+//INTERFARCE
+interface Containership{
+    cargoContainers: number;
+}
+
+let goodForTheJob = (nave: Containership) => nave.cargoContainers > 2;
+console.log(`Is Falcon good for the Job? ${goodForTheJob(falcon) ? 'Yes' : 'No'}`);
