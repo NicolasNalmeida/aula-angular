@@ -1,7 +1,13 @@
-<div class="content-jedi">
-  Student: {{student.name}}
+<div class="content-jedi" *ngIf="student">
+  Student: <a href="javascript:;" (click)="clicked()">{{student?.name}}</a>
 
-  <div *ngIf="student.isJedi">
-    Jedi Temple: {{student.temple}}
+  <div *ngIf="student?.isJedi">
+    <p>Jedi Temple: {{student?.temple}}</p>
+    <button (click)="description.focus()">Focus !</button>
+    <textarea class="text-area" #description></textarea>
   </div>
 </div>
+
+<p *ngIf="!student">
+  Sem dados para Exibir!
+</p>
